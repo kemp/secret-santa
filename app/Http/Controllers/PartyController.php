@@ -45,6 +45,6 @@ class PartyController extends Controller
 
         InvitePartyParticipants::dispatch($party);
 
-        return view('party.created');
+        return redirect()->route('party.created');
     }
 }

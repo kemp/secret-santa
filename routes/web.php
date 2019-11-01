@@ -12,7 +12,9 @@
 */
 
 Route::get('/', 'PartyController@create')->name('party.create');
-Route::post('/', 'PartyController@store')->name('party.store');
+Route::post('/', 'PartyController@store')->name('party.store')->middleware('throttle:3,1');
+
+Route::view('created', 'party.created')->name('party.created');
 
 Route::get('participant/{participant}', 'ParticipantController@show')->name('participant.show');
 Route::post('participant/{participant}/confirm', 'ParticipantController@confirm')->name('participant.confirm');
