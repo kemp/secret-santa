@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     </head>
     <body>
-        <div class="w-full max-w-md mx-auto mt-2">
+        <div class="w-full max-w-md mx-auto mt-2 px-4">
             <h1 class="text-center text-lg text-gray-600">Secret Santa App</h1>
 
             <div class="mt-5 max-w-full">
