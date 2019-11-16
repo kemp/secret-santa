@@ -47,7 +47,7 @@ class InitiateSecretSanta implements ShouldQueue
             // Assigned participant is just the next one in the array
             // or the first if they are last.
             $assignedParticipant = $assignedParticipants[$key];
-            
+
             // Create the secret santa assigment.
             $secretSanta = SecretSanta::create([
                 'party_id' => $participant->party->id,
@@ -57,7 +57,7 @@ class InitiateSecretSanta implements ShouldQueue
 
             // Notify that participant of their secret santa.
             Mail::to($participant->email)
-                ->send(new SecretSantaInitiated($secretSanta));
+                ->queue(new SecretSantaInitiated($secretSanta));
         });
     }
 }

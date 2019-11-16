@@ -39,7 +39,7 @@ class InvitePartyParticipants implements ShouldQueue
     {
         foreach($this->party->participants as $participant) {
             Mail::to($participant->email)
-                ->send(new ParticipantInvited($participant, $this->party));
+                ->queue(new ParticipantInvited($participant, $this->party));
 
             $participant->invited_at = now();
             $participant->save();
