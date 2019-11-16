@@ -12,7 +12,7 @@
         <div class="w-full max-w-md mx-auto mt-2 px-4">
             <h1 class="text-center text-lg text-gray-600">Secret Santa App</h1>
 
-            <div class="mt-5 max-w-full">
+            <div class="mt-5 max-w-full pb-10">
                 @yield('main')
             </div>
         </div>
