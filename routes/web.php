@@ -19,15 +19,15 @@ Route::view('created', 'party.created')->name('party.created');
 Route::get('participant/{participant}', 'ParticipantController@show')->name('participant.show');
 Route::post('participant/{participant}/confirm', 'ParticipantController@confirm')->name('participant.confirm');
 
-Route::get('mailable/initiated', function () {
-    $invoice = App\SecretSanta::find(1);
-
-    return new App\Mail\SecretSantaInitiated($invoice);
-});
-
-Route::get('mailable/invited', function () {
-    $participant = App\Participant::find(1);
-    $party = App\Party::find(1);
-
-    return new App\Mail\ParticipantInvited($participant, $party);
-});
+//Route::get('mailable/initiated', function () {
+//    $invoice = App\SecretSanta::find(1);
+//
+//    return new App\Mail\SecretSantaInitiated($invoice);
+//});
+//
+//Route::get('mailable/invited', function () {
+//    $participant = App\Participant::find(1);
+//    $party = App\Party::find(1);
+//
+//    return new App\Mail\ParticipantInvited($participant, $party);
+//});
