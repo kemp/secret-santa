@@ -2,15 +2,11 @@
 
 namespace App\Mail;
 
-use App\Party;
-use App\Participant;
-
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class ParticipantInvited extends Mailable
+class CreatorEditLink extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -19,15 +15,16 @@ class ParticipantInvited extends Mailable
     public $party;
 
     /**
-     * Create a new message instance.
-     *
-     * @return void
+     * CreatorEditLink constructor.
+     * @param $participant
+     * @param $party
      */
-    public function __construct(Participant $participant, Party $party)
+    public function __construct($participant, $party)
     {
         $this->participant = $participant;
         $this->party = $party;
     }
+
 
     /**
      * Build the message.
@@ -36,7 +33,7 @@ class ParticipantInvited extends Mailable
      */
     public function build()
     {
-        return $this->subject('You\'re invited to participate in Secret Santa!')
-            ->markdown('emails.participant.invited');
+        return $this->subject('Here\'s the link for the secret santa')
+            ->markdown('emails.creator.edit');
     }
 }

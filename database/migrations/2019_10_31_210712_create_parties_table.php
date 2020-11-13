@@ -15,6 +15,8 @@ class CreatePartiesTable extends Migration
     {
         Schema::create('parties', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('invitation_token', 8)->unique();
+            $table->timestamp('began_at')->nullable();
             $table->timestamps();
         });
     }

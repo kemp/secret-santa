@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Participant extends Model
 {
     /** Fillable attributes */
-    protected $fillable = ['party_id', 'invitation_token', 'name', 'email'];
+    protected $fillable = ['party_id', 'edit_token', 'name', 'email', 'wishlist'];
 
     /**
      * Get the route key for the model.
@@ -20,8 +20,8 @@ class Participant extends Model
     }
 
     /**
-     * Fetch the associated party of the participant.
-     * @returns 
+     * Fetch the associated party of the creator.
+     * @returns
      */
     public function party()
     {

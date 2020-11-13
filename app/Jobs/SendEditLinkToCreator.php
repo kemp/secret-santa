@@ -2,33 +2,34 @@
 
 namespace App\Jobs;
 
-use App\Party;
-
-use App\Mail\ParticipantInvited;
-
+use App\Mail\CreatorEditLink;
 use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Mail;
 
-class InvitePartyParticipants implements ShouldQueue
+class SendEditLinkToCreator implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    /** The given party */
     protected $party;
 
+    protected $participant;
+
     /**
-     * Create a new job instance.
-     *
-     * @return void
+     * SendEditLinkToCreator constructor.
+     * @param $party
+     * @param $participant
      */
-    public function __construct(Party $party)
+    public function __construct($party, $participant)
     {
         $this->party = $party;
+        $this->participant = $participant;
     }
+
 
     /**
      * Execute the job.
@@ -37,12 +38,7 @@ class InvitePartyParticipants implements ShouldQueue
      */
     public function handle()
     {
-        foreach($this->party->participants as $participant) {
-            Mail::to($participant->email)
-                ->queue(new ParticipantInvited($participant, $this->party));
-
-            $participant->invited_at = now();
-            $participant->save();
-        }
+        Mail::to($this->participant->email)
+            ->send(new CreatorEditLink($this->participant, $this->party));
     }
 }

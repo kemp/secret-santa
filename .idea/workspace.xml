@@ -20,22 +20,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="42ee80b9-d5df-4173-a9d2-e5457a2b993c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/secretsanta.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/secretsanta.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Exceptions/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exceptions/Handler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/session.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/session.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ParticipantController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PartyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PartyController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Jobs/InitiateSecretSanta.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Jobs/InitiateSecretSanta.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Jobs/InvitePartyParticipants.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Mail/ParticipantInvited.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Participant.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Participant.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Party.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Party.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/SecretSanta.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/SecretSanta.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_10_31_210712_create_parties_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_10_31_210712_create_parties_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_10_31_210738_create_participants_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_10_31_210738_create_participants_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/emails/orders/shipped.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/emails/participant/invited.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/emails/creator/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/participant/confirmed.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/participant/show.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/party/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/party/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/party/created.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/party/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,11 +174,13 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.general" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
@@ -192,7 +198,9 @@
       <option name="presentableId" value="Default" />
       <updated>1605105512580</updated>
       <workItem from="1605105513666" duration="532000" />
-      <workItem from="1605106057243" duration="4247000" />
+      <workItem from="1605106057243" duration="11337000" />
+      <workItem from="1605147265791" duration="288000" />
+      <workItem from="1605274171379" duration="4168000" />
     </task>
     <servers />
   </component>
@@ -209,15 +217,28 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="768" y="272" width="374" height="569" key="#com.intellij.ide.util.MemberChooser" timestamp="1605111797567">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="768" y="272" width="374" height="569" key="#com.intellij.ide.util.MemberChooser/0.27.1920.1053/1920.0.1680.1050@0.27.1920.1053" timestamp="1605111797567" />
     <state x="693" y="303" width="524" height="508" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605109638002">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="693" y="303" width="524" height="508" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.27.1920.1053/1920.0.1680.1050@0.27.1920.1053" timestamp="1605109638002" />
-    <state x="623" y="263" width="672" height="678" key="search.everywhere.popup" timestamp="1605110424586">
+    <state x="693" y="311" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1605113127644">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="623" y="263" width="672" height="678" key="search.everywhere.popup/0.27.1920.1053/1920.0.1680.1050@0.27.1920.1053" timestamp="1605110424586" />
+    <state x="693" y="311" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.27.1920.1053/1920.0.1680.1050@0.27.1920.1053" timestamp="1605113127644" />
+    <state x="464" y="188" width="992" height="737" key="SettingsEditor" timestamp="1605147518079">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="464" y="188" width="992" height="737" key="SettingsEditor/0.27.1920.1053/1920.0.1680.1050@0.27.1920.1053" timestamp="1605147518079" />
+    <state x="623" y="263" width="672" height="678" key="search.everywhere.popup" timestamp="1605276456304">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="623" y="263" width="672" height="678" key="search.everywhere.popup/0.27.1920.1053/1920.0.1680.1050@0.27.1920.1053" timestamp="1605276456304" />
   </component>
 </project>

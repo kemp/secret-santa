@@ -18,10 +18,8 @@ class CreateParticipantsTable extends Migration
             $table->unsignedBigInteger('party_id');
             $table->string('name');
             $table->string('email');
-            $table->timestamp('invited_at')->nullable();
-            $table->string('invitation_token', 64);
+            $table->string('edit_token', 64)->nullable();
             $table->text('wishlist')->nullable();
-            $table->timestamp('confirmed_at')->nullable();
             $table->timestamps();
 
             $table->foreign('party_id')->references('id')->on('parties');

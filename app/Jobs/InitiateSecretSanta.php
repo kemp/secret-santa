@@ -44,7 +44,7 @@ class InitiateSecretSanta implements ShouldQueue
         // Loop through all of the participants.
         $participants->each(function ($participant, $key) use ($assignedParticipants) {
 
-            // Assigned participant is just the next one in the array
+            // Assigned creator is just the next one in the array
             // or the first if they are last.
             $assignedParticipant = $assignedParticipants[$key];
 
@@ -55,7 +55,7 @@ class InitiateSecretSanta implements ShouldQueue
                 'to_id' => $assignedParticipant->id,
             ]);
 
-            // Notify that participant of their secret santa.
+            // Notify that creator of their secret santa.
             Mail::to($participant->email)
                 ->queue(new SecretSantaInitiated($secretSanta));
         });
