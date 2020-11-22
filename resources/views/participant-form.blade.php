@@ -37,7 +37,7 @@
 
     <p class="font-medium">Tips for your wishlist:</p>
 
-    <ul class="mb-4 list-disc">
+    <ul class="mb-4 list-disc list-inside">
         <li>If you include clothing, include your clothing size</li>
         <li>If you want a specific item, include a link</li>
         <li>Include options at multiple price points</li>
