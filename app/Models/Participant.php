@@ -21,6 +21,7 @@ class Participant extends Model
 
     /**
      * Fetch the associated party of the creator.
+     *
      * @returns
      */
     public function party()

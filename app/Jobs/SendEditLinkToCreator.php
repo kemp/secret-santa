@@ -4,7 +4,6 @@ namespace App\Jobs;
 
 use App\Mail\CreatorEditLink;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
@@ -21,6 +20,7 @@ class SendEditLinkToCreator implements ShouldQueue
 
     /**
      * SendEditLinkToCreator constructor.
+     *
      * @param $party
      * @param $participant
      */
@@ -29,7 +29,6 @@ class SendEditLinkToCreator implements ShouldQueue
         $this->party = $party;
         $this->participant = $participant;
     }
-
 
     /**
      * Execute the job.

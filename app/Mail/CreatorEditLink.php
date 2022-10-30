@@ -16,6 +16,7 @@ class CreatorEditLink extends Mailable
 
     /**
      * CreatorEditLink constructor.
+     *
      * @param $participant
      * @param $party
      */
@@ -24,7 +25,6 @@ class CreatorEditLink extends Mailable
         $this->participant = $participant;
         $this->party = $party;
     }
-
 
     /**
      * Build the message.

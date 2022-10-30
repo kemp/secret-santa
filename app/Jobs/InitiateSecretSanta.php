@@ -37,13 +37,12 @@ class InitiateSecretSanta implements ShouldQueue
     public function handle()
     {
         $participants = $this->party->participants->shuffle();
-        $assignedParticipants = $participants->map(function($participant, $key) use ($participants) {
+        $assignedParticipants = $participants->map(function ($participant, $key) use ($participants) {
             return $participants[($key + 1) % $participants->count()];
         });
 
         // Loop through all of the participants.
         $participants->each(function ($participant, $key) use ($assignedParticipants) {
-
             // Assigned creator is just the next one in the array
             // or the first if they are last.
             $assignedParticipant = $assignedParticipants[$key];

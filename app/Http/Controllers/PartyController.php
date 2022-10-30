@@ -11,7 +11,6 @@ use Illuminate\Support\Str;
 
 class PartyController extends Controller
 {
-
     const PARTICIPANT_RULES = [
         'name' => 'required|string',
         'email' => 'required|email',
@@ -34,7 +33,7 @@ class PartyController extends Controller
         $data = $request->validate(self::PARTICIPANT_RULES);
 
         $party = Party::create([
-            'invitation_token' => Str::random(8)
+            'invitation_token' => Str::random(8),
         ]);
 
         $participant = Participant::create([

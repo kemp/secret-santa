@@ -8,9 +8,9 @@ class Party extends Model
 {
     protected $fillable = ['invitation_token', 'began_at'];
 
-
     /**
      * Fetch the participants in a given party
+     *
      * @return
      */
     public function participants()
