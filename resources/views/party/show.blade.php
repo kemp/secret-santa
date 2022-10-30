@@ -39,6 +39,8 @@
     @else
         @if($party->canBeInitiated())
             <form action="{{ route('party.initiate', ['party' => $party, 'edit_token' => request()->edit_token]) }}" method="POST">
+                @csrf
+
                 <input
                     type="submit"
                     class="mb-4 w-full rounded bg-teal-100 border border-teal-600 py-2 px-4 font-bold cursor-pointer"
