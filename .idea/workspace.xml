@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="42ee80b9-d5df-4173-a9d2-e5457a2b993c" name="Default Changelist" comment="Run laravel pint">
+    <list default="true" id="42ee80b9-d5df-4173-a9d2-e5457a2b993c" name="Default Changelist" comment="Add encrypted environment file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -177,6 +177,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/lang" />
     </key>
@@ -199,7 +202,7 @@
       <workItem from="1605106057243" duration="11337000" />
       <workItem from="1605147265791" duration="288000" />
       <workItem from="1605274171379" duration="4168000" />
-      <workItem from="1667153301304" duration="4133000" />
+      <workItem from="1667153301304" duration="5150000" />
     </task>
     <task id="LOCAL-00001" summary="Update to Laravel v9">
       <created>1667155600166</created>
@@ -229,7 +232,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667156602235</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Add encrypted environment file">
+      <created>1667157753761</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1667157753761</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -251,6 +261,7 @@
     <MESSAGE value="Laravel v9 fixes" />
     <MESSAGE value="Even more Laravel v9 fixes" />
     <MESSAGE value="Run laravel pint" />
-    <option name="LAST_COMMIT_MESSAGE" value="Run laravel pint" />
+    <MESSAGE value="Add encrypted environment file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add encrypted environment file" />
   </component>
 </project>
