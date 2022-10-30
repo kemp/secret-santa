@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    box-sizing: border-box;
+}
+
+.participant-field .name, .email {
+    @apply leading-normal py-2 px-4 rounded border border-gray-300 m-2 w-full;
+}
+
+.participant-field .name:focus, .email:focus {
+    @apply outline-none drop-shadow-md;
+}
+
+h2 {
+    @apply text-xl mb-2;
+}

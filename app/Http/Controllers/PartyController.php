@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Jobs\InitiateSecretSanta;
 use App\Jobs\SendEditLinkToCreator;
-use App\Party;
-use App\Participant;
+use App\Models\Participant;
+use App\Models\Party;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 

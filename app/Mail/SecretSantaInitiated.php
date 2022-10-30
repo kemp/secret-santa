@@ -2,7 +2,7 @@
 
 namespace App\Mail;
 
-use App\SecretSanta;
+use App\Models\SecretSanta;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;

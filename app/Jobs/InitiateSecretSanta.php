@@ -2,15 +2,15 @@
 
 namespace App\Jobs;
 
+use App\Mail\SecretSantaInitiated;
+use App\Models\Party;
+use App\Models\SecretSanta;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use App\Mail\SecretSantaInitiated;
-use App\SecretSanta;
 use Illuminate\Support\Facades\Mail;
-use App\Party;
 
 class InitiateSecretSanta implements ShouldQueue
 {

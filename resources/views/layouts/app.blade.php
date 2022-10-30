@@ -6,7 +6,7 @@
 
         <title>@yield('title', 'Secret Santa')</title>
 
-        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        @vite('resources/css/app.css')
     </head>
     <body>
         <div class="w-full max-w-md mx-auto mt-2 px-4">

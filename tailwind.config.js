@@ -1,14 +1,12 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-    future: {
-        // removeDeprecatedGapUtilities: true,
-        // purgeLayersByDefault: true,
-    },
-    purge: [
-        './resources/**/*.blade.php'
-    ],
-    theme: {
-        extend: {},
-    },
-    variants: {},
-    plugins: [],
+  content: [
+    "./resources/**/*.blade.php",
+    "./resources/**/*.js",
+    "./resources/**/*.vue",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
 }

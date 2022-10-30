@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,8 +13,8 @@
 |
 */
 
-Route::get('/', 'PartyController@create')->name('party.create');
-Route::post('/', 'PartyController@store')->name('party.store')->middleware('throttle:3,1');
-Route::get('/party/{party:invitation_token}', 'PartyController@show')->name('party.show');
-Route::post('/party/{party:invitation_token}/participants', 'PartyController@addParticipant')->name('party.participants.store');
-Route::post('/party/{party:invitation_token}/initiate', 'PartyController@initiate')->name('party.initiate');
+Route::get('/', [\App\Http\Controllers\PartyController::class, 'create'])->name('party.create');
+Route::post('/', [\App\Http\Controllers\PartyController::class, 'store'])->name('party.store')->middleware('throttle:3,1');
+Route::get('/party/{party:invitation_token}', [\App\Http\Controllers\PartyController::class, 'show'])->name('party.show');
+Route::post('/party/{party:invitation_token}/participants', [\App\Http\Controllers\PartyController::class, 'addParticipant'])->name('party.participants.store');
+Route::post('/party/{party:invitation_token}/initiate', [\App\Http\Controllers\PartyController::class, 'initiate'])->name('party.initiate');
