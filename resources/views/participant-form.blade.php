@@ -1,6 +1,7 @@
 @include('errors', ['errors' => $errors])
 
 <form action="{{ $route }}" method="POST">
+    @csrf
 
     <p><label for="name">Name:</label></p>
     <input

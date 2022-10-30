@@ -28,7 +28,7 @@ class Party extends Model
 
     public function canBeInitiated()
     {
-        return request()->edit_token === $this->creator()->edit_token
+        return request()->query('edit_token') === $this->creator()->edit_token
             && $this->creator()->edit_token !== null
             && $this->participants()->count() > 2
             && $this->began_at === null;
