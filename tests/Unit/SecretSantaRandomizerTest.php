@@ -47,11 +47,11 @@ class SecretSantaRandomizerTest extends TestCase
         ];
 
         $this->assertAllRandomResultsMissing([
-            2 => 4
+            2 => 4,
         ], $participantIds, $exclusions);
 
         $this->assertAllRandomResultsMissing([
-            4 => 2
+            4 => 2,
         ], $participantIds, $exclusions);
     }
 
@@ -130,8 +130,7 @@ class SecretSantaRandomizerTest extends TestCase
         array $missing,
         array $participants,
         ?array $exclusions = null,
-    ): void
-    {
+    ): void {
         $results = $this->allRandomResults($participants, $exclusions);
 
         foreach ($results as $result) {

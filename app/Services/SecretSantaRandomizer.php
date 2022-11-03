@@ -7,16 +7,16 @@ use App\Exceptions\InvalidSecretSantaException;
 class SecretSantaRandomizer
 {
     /**
-     * @param int[] $participants
-     * @param array<int, int>|null $exclusions
+     * @param  int[]  $participants
+     * @param  array<int, int>|null  $exclusions
      * @return array<int, int>
+     *
      * @throws InvalidSecretSantaException
      */
     public static function randomize(
         array $participants,
         array $exclusions = null,
-    ): array
-    {
+    ): array {
         $exclusions ??= [];
         $attempts = 0;
 
