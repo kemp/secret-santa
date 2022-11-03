@@ -74,7 +74,10 @@ class PartyController extends Controller
         $participant = $party->participants()->create($data);
 
         // Redirect back to party.show
-        return redirect()->route('party.show', ['party' => $party]);
+        return redirect()->route('party.show', ['party' => $party])->with(
+            'success',
+            'You have successfully joined the secret santa.'
+        );
     }
 
     public function initiate(Request $request, Party $party)

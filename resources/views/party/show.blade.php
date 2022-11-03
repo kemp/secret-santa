@@ -38,6 +38,16 @@
         @endforeach
     </ul>
 
+    @if(session()->has('success'))
+        <div class="mb-4 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+            <ul class="list-disc list-inside">
+                @foreach (\Illuminate\Support\Arr::wrap(session()->get('success')) as $message)
+                    <li>{{ $message }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <hr class="mb-4">
 
     @if($party->began_at)
