@@ -51,7 +51,10 @@ class PartyController extends Controller
 
         SendEditLinkToCreator::dispatch($party, $participant);
 
-        return redirect()->route('party.show', ['party' => $party]);
+        return redirect()->route('party.show', ['party' => $party])->with([
+            'success' => 'You have successfully created a secret santa. You\'ll receive a link in your email to start it.',
+            'clear-saved-input' => true,
+        ]);
     }
 
     public function show(Request $request, Party $party)
