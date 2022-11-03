@@ -18,12 +18,23 @@ class Party extends Model
         return $this->hasMany(Participant::class);
     }
 
+    public function exclusions()
+    {
+        return $this->hasMany(Exclusion::class);
+    }
+
     /**
      * Determine the creatore of the party
      */
     public function creator()
     {
         return $this->participants()->first();
+    }
+
+    public function canBeEdited()
+    {
+        return request()->query('edit_token') === $this->creator()->edit_token
+            && $this->began_at === null;
     }
 
     public function canBeInitiated()

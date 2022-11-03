@@ -2,12 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Jobs\InitiateSecretSanta;
+use App\Exceptions\InvalidSecretSantaException;
 use App\Jobs\SendEditLinkToCreator;
+use App\Mail\SecretSantaInitiated;
 use App\Models\Participant;
 use App\Models\Party;
+use App\Models\SecretSanta;
+use App\Services\SecretSantaRandomizer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
+use Illuminate\Validation\ValidationException;
 
 class PartyController extends Controller
 {
@@ -76,7 +81,29 @@ class PartyController extends Controller
     {
         abort_unless($party->canBeInitiated(), 403);
 
-        InitiateSecretSanta::dispatch($party);
+        $participants = $party->participants()->pluck('email', 'id')->toArray();
+        $exclusions = $party->exclusions()->pluck('to_id', 'from_id')->toArray();
+
+        try {
+            $pairings = SecretSantaRandomizer::randomize(array_keys($participants), $exclusions);
+        } catch (InvalidSecretSantaException $e) {
+            throw ValidationException::withMessages([
+                $e->getMessage(),
+            ]);
+        }
+
+        collect($pairings)->each(function ($assignedParticipant, $participant) use ($party, $participants) {
+            // Create the secret santa assigment.
+            $secretSanta = SecretSanta::create([
+                'party_id' => $party->id,
+                'from_id' => $participant,
+                'to_id' => $assignedParticipant,
+            ]);
+
+            // Notify that creator of their secret santa.
+            Mail::to($participants[$participant])
+                ->queue(new SecretSantaInitiated($secretSanta));
+        });
 
         $party->began_at = now();
         $party->save();

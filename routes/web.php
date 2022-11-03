@@ -18,3 +18,9 @@ Route::post('/', [\App\Http\Controllers\PartyController::class, 'store'])->name(
 Route::get('/party/{party:invitation_token}', [\App\Http\Controllers\PartyController::class, 'show'])->name('party.show');
 Route::post('/party/{party:invitation_token}/participants', [\App\Http\Controllers\PartyController::class, 'addParticipant'])->name('party.participants.store');
 Route::post('/party/{party:invitation_token}/initiate', [\App\Http\Controllers\PartyController::class, 'initiate'])->name('party.initiate');
+
+Route::post('/party/{party:invitation_token}/exclusions', [\App\Http\Controllers\ExclusionController::class, 'store'])
+    ->name('exclusions.store');
+
+Route::delete('/party/{party:invitation_token}/exclusions/{exclusion}', [\App\Http\Controllers\ExclusionController::class, 'destroy'])
+    ->name('exclusions.destroy');

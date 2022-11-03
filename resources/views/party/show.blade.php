@@ -1,3 +1,9 @@
+@php
+    /**
+     * @var $party \App\Models\Party
+     */
+@endphp
+
 @extends('layouts.app')
 
 @section('title', "{$party->creator()->name} has invited you to join Secret Santa!")
@@ -37,6 +43,74 @@
     @if($party->began_at)
         <h2 class="text-center text-2xl">The Secret Santa has begun!</h2>
     @else
+        @if($party->canBeEdited())
+            <div class="mb-4">
+                <h2 class="text-2xl">
+                    Exclusions
+                </h2>
+
+                @foreach($party->exclusions as $exclusion)
+                    <div class="flex justify-between">
+                        <form class="contents" action="" method="POST">
+                            <div class="w-full p-2">
+                                {{ $exclusion->from->name }}
+                            </div>
+                            <div class="m-2">
+                                &rlarr;
+                            </div>
+                            <div class="w-full p-2">
+                                {{ $exclusion->to->name }}
+                            </div>
+                        </form>
+                        <div>
+                            <form action="{{ route('exclusions.destroy', [$party, $exclusion]) }}" method="POST">
+                                @method('DELETE')
+                                @csrf
+
+                                <button class="p-1 px-2 text-2xl" type="submit" title="Remove exclusion">
+                                    &times;
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                @endforeach
+
+                @if($party->participants->count() > 1)
+                    <form action="{{ route('exclusions.store', $party) }}" method="POST">
+                        @csrf
+
+                        <div class="flex justify-between">
+                            <div class="w-full">
+                                <select class="w-full p-2" name="from_id" id="to_id">
+                                    @foreach($party->participants as $participant)
+                                        <option value="{{ $participant->id }}">
+                                            {{ $participant->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="m-2">
+                                &rlarr;
+                            </div>
+                            <div class="w-full">
+                                <select class="w-full p-2" name="to_id" id="to_id">
+                                    @foreach($party->participants as $participant)
+                                        <option value="{{ $participant->id }}">
+                                            {{ $participant->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div>
+                                <button class="p-1 px-2 text-2xl" type="submit" title="Save exclusion">
+                                    &plus;
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                @endif
+            </div>
+        @endif
         @if($party->canBeInitiated())
             <form action="{{ route('party.initiate', ['party' => $party, 'edit_token' => request()->edit_token]) }}" method="POST">
                 @csrf
