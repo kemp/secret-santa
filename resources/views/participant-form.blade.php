@@ -35,7 +35,7 @@
 
     @isset($suggestedDeadline)
         <div>
-            <label class="label" for="deadline">Questionnaire deadline <span class="font-normal text-stone-500">(optional)</span></label>
+            <label class="label" for="deadline">Questionnaire deadline <span class="font-normal text-stone-600 dark:text-stone-300">(optional)</span></label>
             <input
                 class="field @error('deadline') field-invalid @enderror"
                 type="date"

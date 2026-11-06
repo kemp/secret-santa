@@ -1,5 +1,5 @@
 @component('mail::message')
-# You're in, {{ $participant->name }}! 🎁
+# You're in, {{ $participant->name }}!
 
 You've joined **{{ $participant->party->creator()->name }}'s Secret Santa**. This is your private link. Use it to answer a few quick questions for your Secret Santa, and after the draw, to see who you're buying for.
 

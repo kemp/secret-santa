@@ -9,8 +9,11 @@
 
 @section('main')
     <section class="card">
-        <a class="text-sm font-medium text-pine-700 hover:underline dark:text-pine-300" href="{{ route('admin.questions.index') }}">&larr; All questions</a>
-        <h1 class="mt-3 mb-6 text-3xl font-semibold text-pine-900 dark:text-white">{{ $editing ? 'Edit question' : 'Add a question' }}</h1>
+        <a class="inline-flex items-center gap-1.5 text-sm font-bold text-pine-700 hover:underline dark:text-pine-300" href="{{ route('admin.questions.index') }}">
+            @include('icon', ['name' => 'left', 'class' => 'size-4'])
+            All questions
+        </a>
+        <h1 class="mt-4 mb-6 text-3xl">{{ $editing ? 'Edit question' : 'Add a question' }}</h1>
 
         @include('errors', ['errors' => $errors])
 
@@ -42,7 +45,7 @@
             </div>
 
             <div>
-                <label class="label" for="options">Choices <span class="font-normal text-stone-500">(optional)</span></label>
+                <label class="label" for="options">Choices <span class="font-normal text-stone-600 dark:text-stone-300">(optional)</span></label>
                 <input class="field @error('options') field-invalid @enderror" type="text" name="options" id="options" maxlength="500"
                        value="{{ old('options', implode(', ', $question->options ?? [])) }}" placeholder="Cozy, Practical, Funny, Fancy">
                 <p class="hint mt-1.5">Comma-separated. When set, people pick one instead of typing an answer.</p>
@@ -51,7 +54,7 @@
             <label class="flex items-center gap-3">
                 <input type="hidden" name="is_active" value="0">
                 <input class="size-5 rounded accent-pine-600" type="checkbox" name="is_active" value="1" @checked(old('is_active', $question->is_active))>
-                <span class="font-medium">Active</span>
+                <span class="font-bold">Asked in the questionnaire</span>
             </label>
 
             <button class="btn btn-primary w-full py-3" type="submit">{{ $editing ? 'Save changes' : 'Add question' }}</button>

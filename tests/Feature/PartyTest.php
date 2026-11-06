@@ -19,7 +19,7 @@ class PartyTest extends TestCase
 
     public function test_home_page_loads()
     {
-        $this->get('/')->assertOk()->assertSee('Start your Secret Santa');
+        $this->get('/')->assertOk()->assertSee('Start the '.now()->year.' Secret Santa');
     }
 
     public function test_creating_a_party_takes_the_organiser_to_their_questionnaire()
@@ -132,7 +132,7 @@ class PartyTest extends TestCase
 
         $this->get(route('party.show', $creator->party))
             ->assertOk()
-            ->assertSee('Linda has invited you to join Secret Santa!')
+            ->assertSee('Linda has invited you to the '.now()->year.' Secret Santa')
             ->assertSee('Want to join?');
     }
 

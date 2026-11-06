@@ -9,11 +9,11 @@ export default defineConfig({
             input: ['resources/css/app.css', 'resources/ts/app.ts'],
             refresh: true,
             fonts: [
-                bunny('Instrument Sans', {
-                    weights: [400, 500, 600, 700],
+                bunny('Atkinson Hyperlegible', {
+                    weights: [400, 700],
                 }),
-                bunny('Fraunces', {
-                    weights: [500, 600],
+                bunny('Young Serif', {
+                    weights: [400],
                 }),
             ],
         }),
