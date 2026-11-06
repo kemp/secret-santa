@@ -16,9 +16,6 @@ class CreatorEditLink extends Mailable
 
     /**
      * CreatorEditLink constructor.
-     *
-     * @param $participant
-     * @param $party
      */
     public function __construct($participant, $party)
     {

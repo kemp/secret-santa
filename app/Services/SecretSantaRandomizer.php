@@ -15,7 +15,7 @@ class SecretSantaRandomizer
      */
     public static function randomize(
         array $participants,
-        array $exclusions = null,
+        ?array $exclusions = null,
     ): array {
         $exclusions ??= [];
         $attempts = 0;

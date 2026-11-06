@@ -2,6 +2,4 @@
 
 namespace App\Exceptions;
 
-class InvalidSecretSantaException extends \Exception
-{
-}
+class InvalidSecretSantaException extends \Exception {}

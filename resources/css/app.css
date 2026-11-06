@@ -1,20 +1,225 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-* {
-    box-sizing: border-box;
+@source '../../storage/framework/views/*.php';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-display: 'Fraunces', ui-serif, Georgia, Cambria, serif;
+
+    --color-snow: #fbf8f3;
+
+    --color-pine-50: #f0f7f3;
+    --color-pine-100: #dbede2;
+    --color-pine-200: #b8dac7;
+    --color-pine-300: #8bc0a5;
+    --color-pine-400: #5c9f80;
+    --color-pine-500: #3c8265;
+    --color-pine-600: #2b6750;
+    --color-pine-700: #235342;
+    --color-pine-800: #1e4336;
+    --color-pine-900: #19372d;
+    --color-pine-950: #0c1f19;
+
+    --color-berry-50: #fdf3f3;
+    --color-berry-100: #fbe4e4;
+    --color-berry-200: #f8cecf;
+    --color-berry-300: #f2abad;
+    --color-berry-400: #e97b7f;
+    --color-berry-500: #dc5157;
+    --color-berry-600: #c6343b;
+    --color-berry-700: #a6282f;
+    --color-berry-800: #8a252b;
+    --color-berry-900: #73242a;
+    --color-berry-950: #3e0e11;
+
+    --color-gold-300: #f4d58d;
+    --color-gold-400: #ebbf5a;
+    --color-gold-500: #d9a234;
 }
 
-.participant-field .name,
-.participant-field .email {
-    @apply leading-normal py-2 px-4 rounded border border-gray-300 m-2 w-full;
+@layer base {
+    html {
+        color-scheme: light dark;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+        @apply min-h-dvh bg-snow font-sans text-stone-800 antialiased dark:bg-pine-950 dark:text-stone-100;
+    }
+
+    h1,
+    h2,
+    h3 {
+        @apply font-display tracking-tight text-balance;
+    }
+
+    :focus-visible {
+        @apply outline-2 outline-offset-2 outline-berry-500;
+    }
+
+    ::selection {
+        @apply bg-berry-200 text-berry-950;
+    }
 }
 
-.participant-field .name:focus, .email:focus {
-    @apply outline-none drop-shadow-md;
+@layer components {
+    .card {
+        @apply rounded-3xl bg-white/90 p-6 shadow-[0_1px_2px_rgb(0_0_0/0.04),0_8px_24px_-12px_rgb(25_55_45/0.25)] ring-1 ring-stone-900/5 backdrop-blur-sm sm:p-8 dark:bg-pine-900/70 dark:ring-white/10;
+    }
+
+    .eyebrow {
+        @apply text-xs font-semibold tracking-[0.14em] text-berry-600 uppercase dark:text-berry-300;
+    }
+
+    .label {
+        @apply mb-1.5 block font-medium text-stone-800 dark:text-stone-100;
+    }
+
+    .hint {
+        @apply text-sm text-stone-500 dark:text-stone-400;
+    }
+
+    .field {
+        @apply block w-full rounded-xl border border-stone-300 bg-white px-4 py-2.5 text-stone-900 shadow-xs transition placeholder:text-stone-400 focus:border-pine-500 focus:ring-4 focus:ring-pine-500/15 focus:outline-none disabled:cursor-not-allowed disabled:bg-stone-100 disabled:text-stone-500 dark:border-white/15 dark:bg-pine-950/60 dark:text-stone-100 dark:placeholder:text-stone-500 dark:disabled:bg-white/5;
+    }
+
+    .field-invalid {
+        @apply border-berry-500 focus:border-berry-500 focus:ring-berry-500/15;
+    }
+
+    textarea.field {
+        field-sizing: content;
+        @apply min-h-[2.875rem] resize-y;
+    }
+
+    .btn {
+        @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl px-4 py-2.5 font-semibold transition select-none active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50;
+    }
+
+    .btn-primary {
+        @apply bg-berry-600 text-white shadow-sm shadow-berry-900/20 hover:bg-berry-700 dark:bg-berry-500 dark:hover:bg-berry-600;
+    }
+
+    .btn-secondary {
+        @apply bg-pine-700 text-white shadow-sm hover:bg-pine-800 dark:bg-pine-600 dark:hover:bg-pine-500;
+    }
+
+    .btn-ghost {
+        @apply bg-stone-900/5 text-stone-700 hover:bg-stone-900/10 dark:bg-white/10 dark:text-stone-100 dark:hover:bg-white/15;
+    }
+
+    .btn-icon {
+        @apply size-9 rounded-full p-0 text-lg text-stone-500 hover:bg-stone-900/5 hover:text-stone-900 dark:text-stone-400 dark:hover:bg-white/10 dark:hover:text-white;
+    }
+
+    .alert {
+        @apply flex gap-3 rounded-2xl border px-4 py-3 text-sm;
+    }
+
+    .alert-success {
+        @apply border-pine-200 bg-pine-50 text-pine-800 dark:border-pine-700 dark:bg-pine-800/50 dark:text-pine-100;
+    }
+
+    .alert-error {
+        @apply border-berry-200 bg-berry-50 text-berry-800 dark:border-berry-800 dark:bg-berry-950/60 dark:text-berry-100;
+    }
+
+    .badge {
+        @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-semibold;
+    }
+
+    .avatar {
+        @apply inline-flex size-9 shrink-0 items-center justify-center rounded-full text-sm font-bold text-white ring-2 ring-white dark:ring-pine-900;
+    }
+
+    .divider {
+        @apply my-8 border-t border-dashed border-stone-300 dark:border-white/15;
+    }
+
+    /* Pill-style radio buttons for "pick one" questions */
+    .choice {
+        @apply relative cursor-pointer;
+    }
+
+    .choice input {
+        @apply sr-only;
+    }
+
+    .choice span {
+        @apply inline-flex rounded-full border border-stone-300 bg-white px-4 py-2 font-medium transition hover:border-pine-400 dark:border-white/15 dark:bg-pine-950/60;
+    }
+
+    .choice input:checked + span {
+        @apply border-pine-600 bg-pine-600 text-white dark:border-pine-400 dark:bg-pine-500;
+    }
+
+    .choice input:focus-visible + span {
+        @apply ring-4 ring-pine-500/30;
+    }
+
+    .choice input:disabled + span {
+        @apply cursor-not-allowed opacity-60;
+    }
 }
 
-h2 {
-    @apply text-xl mb-2;
+/* Gentle falling snow behind everything. Purely decorative. */
+.snow {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+        radial-gradient(3px 3px at 20px 30px, rgb(255 255 255 / 0.9), transparent),
+        radial-gradient(2px 2px at 140px 80px, rgb(255 255 255 / 0.8), transparent),
+        radial-gradient(3px 3px at 90px 170px, rgb(255 255 255 / 0.7), transparent),
+        radial-gradient(2px 2px at 200px 220px, rgb(255 255 255 / 0.8), transparent),
+        radial-gradient(1.5px 1.5px at 260px 120px, rgb(255 255 255 / 0.9), transparent);
+    background-size: 300px 300px;
+    animation: snowfall 28s linear infinite;
+    opacity: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+    .snow {
+        opacity: 0.55;
+    }
+}
+
+.snow-light {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: -1;
+    height: 22rem;
+    pointer-events: none;
+    background:
+        radial-gradient(60rem 18rem at 50% -6rem, rgb(220 81 87 / 0.14), transparent 70%),
+        radial-gradient(40rem 16rem at 10% -4rem, rgb(60 130 101 / 0.16), transparent 70%);
+}
+
+@keyframes snowfall {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 60px 300px;
+    }
+}
+
+@keyframes pop-in {
+    from {
+        opacity: 0;
+        transform: translateY(6px) scale(0.98);
+    }
+}
+
+.animate-pop-in {
+    animation: pop-in 0.4s cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .snow,
+    .animate-pop-in {
+        animation: none;
+    }
 }

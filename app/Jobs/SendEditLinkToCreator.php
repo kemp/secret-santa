@@ -20,9 +20,6 @@ class SendEditLinkToCreator implements ShouldQueue
 
     /**
      * SendEditLinkToCreator constructor.
-     *
-     * @param $party
-     * @param $participant
      */
     public function __construct($party, $participant)
     {
